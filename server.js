@@ -15,6 +15,6 @@ app.get('/*.(js|css)', function(req, res){
 
 io.sockets.on('connection', function (socket) {
   socket.on('button press', function (data) {
-	  client.send(data,1);
+	  client.send("/mode", data);
   });
 });
