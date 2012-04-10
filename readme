@@ -1,0 +1,3 @@
+This is a simple node.js based webapp for sending osc messages from a browser.
+
+Built using node.js, twitter bootstrap, jquery, node-osc, and socket.io
