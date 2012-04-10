@@ -1,10 +1,12 @@
 var app = require('express').createServer()
-  , io = require('socket.io').listen(app);
+  , io = require('socket.io').listen(app)
+  , osc = require('node-osc')
+  , client = new osc.Client('127.0.0.1', 3333);
 
 app.listen(8080);
 
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendfile(__dirname + '/public/index.html');
 });
 
 app.get('/*.(js|css)', function(req, res){
@@ -13,6 +15,6 @@ app.get('/*.(js|css)', function(req, res){
 
 io.sockets.on('connection', function (socket) {
   socket.on('button press', function (data) {
-    console.log(data);
+	  client.send(data,1);
   });
 });
