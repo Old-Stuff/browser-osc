@@ -1,5 +1,5 @@
 // Jquery
-var socket = io.connect('http://localhost:8080');
+var socket = io.connect('http://mini-bot.com:8080');
 
 $(function(){
     $('.btn').click(function(){
