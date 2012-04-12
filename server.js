@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
-app.get('/*.(js|css)', function(req, res){
+app.get('/*.(js|css|jpg)', function(req, res){
   res.sendfile("./public"+req.url);
 });
 
