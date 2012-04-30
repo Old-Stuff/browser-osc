@@ -1,4 +1,3 @@
-// Jquery
 var socket = io.connect('http://basestation.local:8080');
 
 $(function(){
