@@ -11,12 +11,12 @@
 	$.widget('l90r.piano', {
 		options: {
 			layout : "piano",
-			whiteWidth : 18,
-			whiteHeight : 100,
-			blackWidth : 9,
-			blackHeight: 60,
-			start : 9,
-			keys : 88,
+			whiteWidth : 36,
+			whiteHeight : 200,
+			blackWidth : 18,
+			blackHeight: 120,
+			start : 60,
+			keys : 24,
 			blackColor : '#666',
 			blackColorSelected : '#4f78c4',
 			whiteColor : '#f5f5f5',
@@ -51,7 +51,7 @@
 			this.element.children('.piano-key')
 				.mousedown(this._mouseDownCb())
 				.mouseup(this._mouseUpCb())
-				.mouseout(this._mouseUpCb());
+				// .mouseout(this._mouseUpCb());
 			this.element.bind('pianodown', this._highlight(true))
 				.bind('pianoup', this._highlight(false));			
 			this.sustained = this.options.sustain;
@@ -114,13 +114,11 @@
 		},
 		
 		_pressKey: function(key) {
-				this._addKey(key);
-				this.element.trigger('pianodown', [key, this._getKeys()]);			
+				this.element.trigger('pianodown', key);			
 		},
 		
 		_releaseKey: function(key) {
-				this._removeKey(key);
-				this.element.trigger('pianoup', [key, this._getKeys()]);			
+				this.element.trigger('pianoup', key);	
 		},
 		
 		_mouseDownCb: function() {
