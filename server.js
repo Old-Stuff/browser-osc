@@ -9,6 +9,11 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
+app.get('/piano', function (req, res) {
+  res.sendfile(__dirname + '/public/piano.html');
+});
+
+
 app.get('/*.(js|css|jpg)', function(req, res){
   res.sendfile("./public"+req.url);
 });

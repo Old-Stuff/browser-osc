@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery-ui-1.8.19.custom.min.js"></script>
+<script src="js/jquery.l90r.piano.js"></script>
+<script>
+
+$(function() {
+	$('#piano').piano()
+		.bind('pianodown', function display(event, halftone, pressed) { $('#note').text(pressed.join(', ')); } )
+		.bind('pianoup', function(event, halftone, pressed) { $('#note').text(pressed.join(', ')) });
+	$('#sustain').click( function() {
+		$('#piano').piano('sustain', $(this).is(':checked'));
+	});
+});
+
+</script>
+</head>
+<body>
+<h1>Example for the piano plugin for jQuery</h1>
+<p>Documentation at <a href="http://www.l90r.com/posts/piano-a-flexible-piano-keyboard-plugin-for-jquery">http://www.l90r.com/posts/piano-a-flexible-piano-keyboard-plugin-for-jquery</a></p>
+
+<p>Current note is: <span id="note"></span></p>
+<div id="piano"></div>
+<p>Sustain pedal: <input id="sustain" type="checkbox" /></p>
