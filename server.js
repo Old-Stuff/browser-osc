@@ -1,7 +1,7 @@
 var app = require('express').createServer()
   , io = require('socket.io').listen(app)
   , osc = require('node-osc')
-  , client = new osc.Client('127.0.0.1', 3333);
+  , client = new osc.Client('0.0.0.0', 3333);
 
 app.listen(8080);
 
