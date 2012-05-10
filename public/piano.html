@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery-ui-1.8.19.custom.min.js"></script>
+<script src="js/jquery.l90r.piano.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+var socket = io.connect('http://speaker-bot.local:8080');
+
+$(function() {
+	$('#piano').piano()
+		.bind('pianodown', function display(event, key) { socket.emit('keydown', key); });
+});
+
+$(function() {
+	$('#piano').piano()
+		.bind('pianoup', function display(event, key) { socket.emit('keyup', key); });
+});
+
+
+</script>
+</head>
+<body>
+<div id="piano"></div>
+</body>

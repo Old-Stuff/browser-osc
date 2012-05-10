@@ -1,5 +1,4 @@
-// Jquery
-var socket = io.connect('http://speaker-bot.com:8080');
+var socket = io.connect('http://speaker-bot.local:8080');
 
 $(function(){
     $('.btn').click(function(){
